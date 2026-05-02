@@ -1,0 +1,39 @@
+{
+  "AWSEBDockerrunVersion": 3,
+  "containerDefinitions": [
+    {
+      "name": "backend",
+      "image": "alok1003/finance-backend:latest",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "containerPort": 8000
+        }
+      ],
+      "environment": [
+        {
+          "name": "GOOGLE_API_KEY",
+          "value": "AIzaSyBIaMyk7OXAPlX4PYphXg87q8ct28xbn3o"
+        },
+        {
+          "name": "MONGO_URI",
+          "value": "mongodb+srv://alokdalke:alokdalke@findit.zy4mwqx.mongodb.net/?appName=findit"
+        }
+      ]
+    },
+    {
+      "name": "frontend",
+      "image": "alok1003/finance-frontend:latest",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ]
+    }
+  ]
+}
